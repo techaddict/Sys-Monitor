@@ -4,7 +4,8 @@ import org.scalatra._
 import scalate.ScalateSupport
 
 class SysMonitorServlet extends SysmonitorStack {
+  import scripts._
   get("/") {
-    jade("/index", "DiskUsage" -> scripts.DiskUsage.value)
+    redirect("/index")
   }
 }

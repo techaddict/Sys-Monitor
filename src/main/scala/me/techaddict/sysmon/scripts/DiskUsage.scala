@@ -8,4 +8,5 @@ object DiskUsage{
   private def z = x #| y
   private def out = z.lines_!.toArray
   def value = out.mkString("\n")
+  def value1 = out
 }

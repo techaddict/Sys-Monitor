@@ -16,5 +16,10 @@ h4 "Users:"
 h4 "Memory:"
 - for(i <- Memory.value1)
   p = i
-h4 "OS Info"
+h4 "OS Info:"
 = OSInfo.value
+h4 "IP Addr:"
+h6 "Internal:"
+= IPAddr.value
+h6 "External:"
+= IPAddr.extValue

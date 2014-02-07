@@ -3,17 +3,16 @@
 
 - import me.techaddict.sysmon.scripts._
 
-h3 "Disk Usage:"
+h4 "Disk Usage:"
 - for(i <- DiskUsage.value1)
   p = i
-br
-h3 "Host name:"
+h4 "Host name:"
 = Hostname.value
-h3 "Uptime:"
+h4 "Uptime:"
 = Uptime.value
-h3 "Users:"
+h4 "Users:"
 - for(i <- Users.value1)
   p = i
-h3 "Memory:"
+h4 "Memory:"
 - for(i <- Memory.value1)
   p = i

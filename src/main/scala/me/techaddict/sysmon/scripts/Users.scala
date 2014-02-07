@@ -10,11 +10,17 @@ object Users{
   def value = {
     try {
       out = z.lines_!.toArray
-      out.mkString("\n")
+    } catch {
+      case _: Throwable =>
+    }
+    out.mkString("\n")
+  }
+  def value1 = {
+    try {
+      out = z.lines_!.toArray
     } catch {
       case _: Throwable =>
     }
     out
   }
-  def value1 = out
 }

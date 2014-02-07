@@ -12,4 +12,8 @@ h3 "Host name:"
 h3 "Uptime:"
 = Uptime.value
 h3 "Users:"
-= Users.value
+- for(i <- Users.value1)
+  p = i
+h3 "Memory:"
+- for(i <- Memory.value1)
+  p = i

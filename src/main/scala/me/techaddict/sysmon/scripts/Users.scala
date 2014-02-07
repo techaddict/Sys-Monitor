@@ -6,13 +6,15 @@ object Users{
   private def x = Process("/usr/bin/awk", Seq("-F:", "{ if ($3<=499) print \"system,\"$1\",\"$6; else print \"user,\"$1\",\"$6; }"))
   private def y = Process("cat", Seq("/etc/passwd"))
   private def z = y #> x
+  private var out = Array[String]()
   def value = {
-    var x = ""
     try {
-      x = z.lines_!.toArray.mkString("\n")
+      out = z.lines_!.toArray
+      out.mkString("\n")
     } catch {
       case _: Throwable =>
     }
-    x
+    out
   }
+  def value1 = out
 }

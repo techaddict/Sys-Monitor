@@ -1,9 +1,16 @@
 package me.techaddict.sysmon.scripts
 
 import scala.sys.process._
+import scala.concurrent.{ Future, Promise }
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.Success
 
 object Hostname{
-  private def x = Process("/bin/hostname")
-  private def out = x.lines_!.toArray
-  def value = out.mkString("\n")
+  private def x = Future{
+    Process("/bin/hostname").run(true)
+  }
+  def value = x.onComplete{
+    case Success(x) => x
+    case _ => "Error"
+  }
 }

@@ -7,10 +7,9 @@ import scala.util.Success
 
 object Hostname{
   private def x = Future{
-    Process("/bin/hostname").run(true)
+    Process("/bin/hostname").run(ProcessLogger(l => ()), false)
   }
-  def value = x.onComplete{
-    case Success(x) => x
-    case _ => "Error"
+  def value = x.onSuccess{
+    case Success(x) => x.mkString("")
   }
 }
